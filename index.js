@@ -96,11 +96,12 @@ app.get("/userdetails", async (req, res) => {
 
 
 
-app.listen(8080, async () => {
+app.listen(process.env.PORT, async () => {
   try {
-    console.log("connected");
     await connection;
+    console.log("Connected to server");
   } catch (err) {
-    console.log(err);
+    console.log("Error in connection", err);
   }
+  console.log(`Listen on port ${process.env.PORT}`);
 });
